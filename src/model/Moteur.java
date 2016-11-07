@@ -5,5 +5,11 @@ package model;
  */
 public interface Moteur {
 
+	boolean getEtat();
+	int getTempo();
+	int getMesure();
 
+	void setEtat(boolean etat);
+	void setTempo(int tempo);
+	void setMesure(int mesure);
 }
