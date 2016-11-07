@@ -2,15 +2,15 @@ package command;
 
 import controller.Controller;
 
-public class MarquerTemps implements Command{
+public class MarquerMesure implements Command{
     private Controller controller;
 
-    public MarquerTemps(Controller controller) {
+    public MarquerMesure(Controller controller) {
         this.controller = controller;
     }
 
     @Override
     public void execute() {
-        this.controller.marquerTemps();
+        this.controller.marquerMesure();
     }
 }
