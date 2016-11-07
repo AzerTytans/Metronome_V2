@@ -1,7 +1,9 @@
-package sample;
+package model;
 
 /**
  * Created by florian on 07/11/16.
  */
-public class Moteur {
+public interface Moteur {
+
+
 }
