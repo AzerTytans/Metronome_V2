@@ -12,9 +12,12 @@ public class MoteurImpl implements Moteur{
      */
     private Command marquerMesure;
     private Command marquerTemps;
-    private Command updateTempo;;
+    private Command updateTempo;
     private Command updateEtat;
     private Command updateMesure;
+
+	private int old = 0;
+	private int count = 0;
 
     /**
      * Parametre
@@ -51,20 +54,32 @@ public class MoteurImpl implements Moteur{
      */
     @Override
     public void setEtat(boolean marche){
-        enMarche = marche;
-        updateEtat.execute();
+        if (!marche == enMarche) {
+            enMarche = marche;
+            updateEtat.execute();
+        }
     }
 
     @Override
     public void setTempo(int tempo){
-        this.tempo = tempo;
-        updateTempo.execute();
+	    if(old==tempo)
+		    count ++;
+	    else {
+		    count = 0;
+		    old = tempo;
+	    }
+	    if (count==5){
+            this.tempo = tempo;
+            updateTempo.execute();
+        }
     }
 
     @Override
     public void setMesure(int mesure){
-        this.mesure = mesure;
-        updateMesure.execute();
+	    if (1<mesure && mesure<8){
+            this.mesure = mesure;
+            updateMesure.execute();
+	    }
     }
 
     @Override

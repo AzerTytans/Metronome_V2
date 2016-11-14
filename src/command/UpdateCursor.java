@@ -14,6 +14,6 @@ public class UpdateCursor implements Command{
 
     @Override
     public void execute() {
-        controller.updateCurseur();
+        controller.updateCursor();
     }
 }

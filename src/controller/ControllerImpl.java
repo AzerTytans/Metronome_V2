@@ -8,8 +8,10 @@ import model.Moteur;
 public class ControllerImpl implements Controller {
 
 	private Moteur moteur;
-	private int old = 0;
-	private int count = 0;
+
+	public ControllerImpl(Moteur moteur) {
+		this.moteur = moteur;
+	}
 
 	@Override
 	public void updateTempo() {
@@ -38,42 +40,28 @@ public class ControllerImpl implements Controller {
 
 	@Override
 	public void start() {
-		if (!moteur.getEtat())
 			moteur.setEtat(true);
 	}
 
 	@Override
 	public void stop() {
-		if (moteur.getEtat())
 			moteur.setEtat(false);
 	}
 
 	@Override
 	public void incMesure() {
-		if(moteur.getMesure()<7)
 			moteur.setMesure(moteur.getMesure()+1);
 	}
 
 	@Override
 	public void decMesure() {
-		if(moteur.getMesure()>2)
 			moteur.setMesure(moteur.getMesure()-1);
 	}
 
 	@Override
-	public void updateCurseur() {
+	public void updateCursor() {
 		int cursorPosition=42;
-
-		if(old==cursorPosition)
-			count ++;
-		else {
-			count = 0;
-			old = cursorPosition;
-		}
-		if (count==5){
-			moteur.setTempo(cursorPosition);
-	}
-
+		moteur.setTempo(cursorPosition);
 	}
 
 }
