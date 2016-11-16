@@ -2,6 +2,11 @@ package model;
 
 import command.Command;
 import command.MarquerMesure;
+import command.MarquerNext;
+import tools.Horloge;
+import tools.HorlogeImpl;
+
+import java.util.Timer;
 
 /**
  * Created by florian on 07/11/16.
@@ -25,6 +30,21 @@ public class MoteurImpl implements Moteur{
     private boolean enMarche;
     private int tempo;
     private int mesure;
+    private int mesureActuelle;
+
+    /**
+     * Timer
+     */
+    private Horloge horloge;
+
+    public MoteurImpl() {
+        this.enMarche = false;
+        this.tempo = 150;
+        this.mesure = 4;
+        this.horloge = new HorlogeImpl();
+        this.mesureActuelle = 0;
+
+    }
 
     @Override
     public void setCommand(Command c, CommandName evt) {
@@ -48,6 +68,14 @@ public class MoteurImpl implements Moteur{
         }
     }
 
+    public void notifyDelay(){
+        if(mesureActuelle%mesure == 0)
+            marquerMesure.execute();
+        else{
+            marquerTemps.execute();
+            mesureActuelle++;
+        }
+    }
 
     /**
      * Getters/Setters
@@ -56,6 +84,12 @@ public class MoteurImpl implements Moteur{
     public void setEtat(boolean marche){
         if (!marche == enMarche) {
             enMarche = marche;
+            if(enMarche)
+                this.horloge.activerPeriodiquement(new MarquerNext(this), 60/tempo);
+            else{
+                mesureActuelle = 0;
+                this.horloge.desactiver();
+            }
             updateEtat.execute();
         }
     }
@@ -70,6 +104,8 @@ public class MoteurImpl implements Moteur{
 	    }
 	    if (count==5){
             this.tempo = tempo;
+            this.horloge.desactiver();
+            this.horloge.activerPeriodiquement(new MarquerNext(this), 60/tempo);
             updateTempo.execute();
         }
     }
@@ -78,6 +114,7 @@ public class MoteurImpl implements Moteur{
     public void setMesure(int mesure){
 	    if (1<mesure && mesure<8){
             this.mesure = mesure;
+            this.mesureActuelle = 0;
             updateMesure.execute();
 	    }
     }

@@ -5,6 +5,8 @@ import command.Command;
 public interface Moteur {
     void setCommand(Command c, CommandName evt);
 
+    void notifyDelay();
+
     boolean getEtat();
     int getTempo();
     int getMesure();
