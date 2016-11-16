@@ -11,6 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
+
 <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.IHM">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -38,10 +39,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button  mnemonicParsing="false" onAction="#onStart" style="-fx-border-color: green;" text="Start" />
-                  <Button  mnemonicParsing="false" onAction="#onStop" style="-fx-border-color: red;" text="Stop" GridPane.columnIndex="1" />
-                  <Button  mnemonicParsing="false" onAction="#onInc" text="Inc" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#onDec" text="Dec" GridPane.columnIndex="3" />
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#onStart" style="-fx-border-color: green;" text="Start" />
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#onStop" style="-fx-border-color: red;" text="Stop" GridPane.columnIndex="1" />
+                  <Button fx:id="incButton" mnemonicParsing="false" onAction="#onInc" text="Inc" GridPane.columnIndex="2" />
+                  <Button fx:id="decButton" mnemonicParsing="false" onAction="#onDec" text="Dec" GridPane.columnIndex="3" />
                </children>
             </GridPane>
          </children></AnchorPane>
