@@ -25,19 +25,29 @@ public class Main extends Application {
 
     public void initialize(FXMLLoader fxml){
         Moteur moteur = new MoteurImpl();
+        Afficheur afficheur = new AfficheurImpl((IHM)fxml.getController());
+        Bipeur bipeur = new BipeurImpl();
+
+        /**
+         * Transmission infos controller
+         */
         ControllerImpl controller = new ControllerImpl(moteur);
         controller.setBoutonDec(BoutonDec.getInstance());
         controller.setBoutonStart(BoutonStart.getInstance());
         controller.setBoutonStop(BoutonStop.getInstance());
         controller.setBoutonInc(BoutonInc.getInstance());
-        Afficheur afficheur = new AfficheurImpl((IHM)fxml.getController());
-        Bipeur bipeur = new BipeurImpl();
+        controller.setAfficheur(afficheur);
+        controller.setBipeur(bipeur);
+        controller.setCurseur(CurseurImpl.getInstance());
 
+        /**
+         * Transmission boutons/curseur IHM
+         */
         ((IHM)fxml.getController()).setDec(BoutonDec.getInstance());
         ((IHM)fxml.getController()).setInc(BoutonInc.getInstance());
         ((IHM)fxml.getController()).setStart(BoutonStart.getInstance());
         ((IHM)fxml.getController()).setStop(BoutonStop.getInstance());
-
+        ((IHM)fxml.getController()).setCursor(CurseurImpl.getInstance());
     }
 
     public static void main(String[] args) {
