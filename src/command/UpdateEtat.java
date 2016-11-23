@@ -2,9 +2,7 @@ package command;
 
 import controller.Controller;
 
-/**
- * Created by florian on 07/11/16.
- */
+
 public class UpdateEtat implements  Command {
 
 	private Controller controller;

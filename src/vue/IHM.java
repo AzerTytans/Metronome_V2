@@ -8,9 +8,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
-/**
- * Created by tp15009314 on 09/11/16.
- */
+
 public class IHM {
     @FXML
     private Label tempo;
