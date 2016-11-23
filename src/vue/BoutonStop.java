@@ -23,7 +23,7 @@ public class BoutonStop implements Bouton {
 
     @Override
     public void setCommand(Command c) {
-            this.stop = stop;
+            this.stop = c;
         }
 
     public void onStop(ActionEvent e){

@@ -25,7 +25,7 @@ public class BoutonStart implements Bouton {
 
     @Override
     public void setCommand(Command c) {
-        this.start = start;
+        this.start = c;
     }
 
     public void onStart(ActionEvent e){
