@@ -112,21 +112,6 @@ public class IHM {
         this.dec = dec;
     }
 
-    public Label getTempo() {
-        return tempo;
-    }
-
-    public Circle getTempoLed() {
-        return tempoLed;
-    }
-
-    public Circle getMesureLed() {
-        return mesureLed;
-    }
-
-    public int getSliderPosition() {
-        return cursor.getPosition();
-    }
-
+    public void setCursor(CurseurImpl c) {this.cursor = c;}
 
 }
