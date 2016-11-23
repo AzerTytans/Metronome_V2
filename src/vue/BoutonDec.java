@@ -10,6 +10,17 @@ import javafx.scene.control.Button;
 public class BoutonDec extends Button implements Bouton {
     private Command dec;
 
+    private BoutonDec()
+    {}
+
+    /** Instance unique pré-initialisée */
+    private static BoutonDec INSTANCE = new BoutonDec();
+
+    /** Point d'accès pour l'instance unique du singleton */
+    public static BoutonDec getInstance()
+    {	return INSTANCE;
+    }
+
     @Override
     public void setCommand(Command c) {
         this.dec = dec;

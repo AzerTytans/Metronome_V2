@@ -48,7 +48,7 @@ public class HorlogeImpl implements Horloge{
             this.cmd = cmd;
             this.repeat = b;
         }
-        
+
         public void actionPerformed(ActionEvent e){
             this.cmd.execute();
             if(!repeat)

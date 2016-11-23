@@ -1,7 +1,5 @@
 package vue;
 
-import command.Command;
-import javafx.beans.DefaultProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,14 +7,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
-import model.CommandName;
 
 /**
  * Created by tp15009314 on 09/11/16.
  */
 public class IHM {
-
-
     @FXML
     private Label tempo;
 
@@ -52,25 +47,7 @@ public class IHM {
 
     @FXML
     private void initialize(){
-
     }
-
-    public Label getTempo() {
-            return tempo;
-        }
-
-
-    public Circle getTempoLed() {
-            return tempoLed;
-        }
-
-    public Circle getMesureLed() {
-            return mesureLed;
-        }
-
-    public int getSliderPosition() {
-            return cursor.getPosition();
-        }
 
     public void onSliderChanged(MouseEvent mouseEvent) {
         cursor.onSliderChanged(mouseEvent);
@@ -92,4 +69,42 @@ public class IHM {
     public void onDec(ActionEvent actionEvent) {
         dec.onDec(actionEvent);
     }
+
+    /**
+     *
+     * Getters/Setters
+     *
+     */
+    public void setStart(BoutonStart start) {
+        this.start = start;
+    }
+
+    public void setStop(BoutonStop stop) {
+        this.stop = stop;
+    }
+
+    public void setInc(BoutonInc inc) {
+        this.inc = inc;
+    }
+
+    public void setDec(BoutonDec dec) {
+        this.dec = dec;
+    }
+
+    public Label getTempo() {
+        return tempo;
+    }
+
+    public Circle getTempoLed() {
+        return tempoLed;
+    }
+
+    public Circle getMesureLed() {
+        return mesureLed;
+    }
+
+    public int getSliderPosition() {
+        return cursor.getPosition();
+    }
+
 }
