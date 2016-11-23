@@ -23,7 +23,7 @@ public class BoutonInc implements Bouton {
 
     @Override
     public void setCommand(Command c) {
-        this.inc = inc;
+        this.inc = c;
     }
 
     public void onInc(ActionEvent e){

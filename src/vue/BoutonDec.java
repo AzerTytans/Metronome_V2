@@ -23,7 +23,7 @@ public class BoutonDec implements Bouton {
 
     @Override
     public void setCommand(Command c) {
-        this.dec = dec;
+        this.dec = c;
     }
 
     public void onDec(ActionEvent e){
