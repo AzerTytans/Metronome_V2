@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 
@@ -68,6 +69,28 @@ public class IHM {
         dec.onDec(actionEvent);
     }
 
+    public void marquerMesure(){
+        mesureLed.setFill(Paint.valueOf("red"));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mesureLed.setFill(Paint.valueOf("blue"));
+    }
+
+    public void marquerTempo(){
+
+        tempoLed.setFill(Paint.valueOf("green"));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        tempoLed.setFill(Paint.valueOf("pink"));
+
+    }
+
     /**
      *
      * Getters/Setters
@@ -104,5 +127,6 @@ public class IHM {
     public int getSliderPosition() {
         return cursor.getPosition();
     }
+
 
 }

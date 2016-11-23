@@ -30,8 +30,7 @@ public class Main extends Application {
         controller.setBoutonStart(BoutonStart.getInstance());
         controller.setBoutonStop(BoutonStop.getInstance());
         controller.setBoutonInc(BoutonInc.getInstance());
-        controller.setIHM((IHM)fxml.getController());
-        Afficheur afficheur = new AfficheurImpl();
+        Afficheur afficheur = new AfficheurImpl((IHM)fxml.getController());
         Bipeur bipeur = new BipeurImpl();
 
         ((IHM)fxml.getController()).setDec(BoutonDec.getInstance());
