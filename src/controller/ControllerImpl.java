@@ -1,6 +1,7 @@
 package controller;
 
 import command.*;
+import model.CommandName;
 import model.Moteur;
 import vue.*;
 
@@ -13,6 +14,11 @@ public class ControllerImpl implements Controller {
 
 	public ControllerImpl(Moteur moteur) {
 		this.moteur = moteur;
+		moteur.setCommand(new UpdateEtat(this), CommandName.UPDATE_ETAT);
+		moteur.setCommand(new UpdateMesure(this), CommandName.UPDATE_MESURE);
+		moteur.setCommand(new UpdateTempo(this), CommandName.UPDATE_TEMPO);
+		moteur.setCommand(new MarquerTemps(this), CommandName.MARQUER_TEMPS);
+		moteur.setCommand(new MarquerMesure(this), CommandName.MARQUER_MESURE);
 	}
 
 	@Override
