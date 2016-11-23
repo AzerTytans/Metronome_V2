@@ -14,6 +14,17 @@ public class CurseurImpl implements Curseur{
     private int position;
     private Command updateCurseur;
 
+    private CurseurImpl()
+    {}
+
+    /** Instance unique pré-initialisée */
+    private static CurseurImpl INSTANCE = new CurseurImpl();
+
+    /** Point d'accès pour l'instance unique du singleton */
+    public static CurseurImpl getInstance()
+    {	return INSTANCE;
+    }
+
     @Override
     public int getPosition() {
         return position;
