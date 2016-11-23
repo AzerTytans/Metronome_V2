@@ -1,9 +1,6 @@
 package controller;
 
-import command.Dec;
-import command.Inc;
-import command.Start;
-import command.Stop;
+import command.*;
 import model.Moteur;
 import vue.*;
 
@@ -16,16 +13,17 @@ public class ControllerImpl implements Controller {
 	private Bouton boutonInc;
 	private Bouton boutonDec;
 	private Afficheur afficheur;
-	private Bipeur bipeur;
+    private Bipeur bipeur;
 	private Curseur curseur;
 
-	public ControllerImpl(Moteur moteur) {
+	public ControllerImpl(Moteur moteur, IHM ihm) {
 		this.moteur = moteur;
+		this.ihm = ihm;
 	}
 
 	@Override
 	public void updateTempo() {
-		//Afficheur.setValeur(moteur.getTempo);
+		afficheur.setValeur(moteur.getTempo());
 	}
 
 	@Override
@@ -40,13 +38,13 @@ public class ControllerImpl implements Controller {
 
 	@Override
 	public void marquerTemps() {
-	// bipeur.marquerTemps();
+	bipeur.marquerTemps();
 	}
 
 	@Override
 	public void marquerMesure() {
-	//	ihm.marquerMesure();
-	//  bipeur.marquerMesure();
+	//ihm.marquerMesure();
+	bipeur.marquerMesure();
 	}
 
 	@Override
@@ -76,29 +74,32 @@ public class ControllerImpl implements Controller {
 	}
 
 	public void setBoutonStart(Bouton boutonStart) {
+		this.boutonStart=boutonStart;
 		boutonStart.setCommand(new Start(this));
 	}
 
 	public void setBoutonStop(Bouton boutonStop) {
+		this.boutonStop =boutonStop;
 		boutonStop.setCommand(new Stop(this));
 	}
 
 	public void setBoutonInc(Bouton boutonInc) {
+		this.boutonInc=boutonInc;
 		boutonInc.setCommand(new Inc(this));
 	}
 
 	public void setBoutonDec(Bouton boutonDec) {
+		this.boutonDec=boutonDec;
 		boutonDec.setCommand(new Dec(this));
 	}
 
 	public void setCurseur(Curseur curseur) {
 		this.curseur = curseur;
+		curseur.setCommand(new UpdateCursor(this));
 	}
-
 	public void setAfficheur(Afficheur afficheur) {
 		this.afficheur = afficheur;
 	}
-
 	public void setBipeur(Bipeur bipeur) {
 		this.bipeur = bipeur;
 	}
