@@ -15,14 +15,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Parent root = fxml.getRoot();
+        Parent root = fxml.load();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 500, 275));
         primaryStage.show();
 
-
         initialize(fxml);
-       }
+    }
 
     public void initialize(FXMLLoader fxml){
         Moteur moteur = new MoteurImpl();
