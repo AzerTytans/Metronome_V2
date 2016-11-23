@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
  * Created by tp15009314 on 16/11/16.
  */
 
-public class CurseurImpl extends Slider implements Curseur{
+public class CurseurImpl implements Curseur{
 
     private int position;
     private Command updateCurseur;

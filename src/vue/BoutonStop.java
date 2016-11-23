@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 /**
  * Created by tp15009314 on 16/11/16.
  */
-public class BoutonStop extends Button implements Bouton {
+public class BoutonStop implements Bouton {
     private Command stop;
 
     private BoutonStop()

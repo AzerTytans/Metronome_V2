@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 /**
  * Created by tp15009314 on 16/11/16.
  */
-public class BoutonInc extends Button implements Bouton {
+public class BoutonInc implements Bouton {
     private Command inc;
 
     private BoutonInc()

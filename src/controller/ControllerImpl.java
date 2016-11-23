@@ -5,9 +5,7 @@ import command.Inc;
 import command.Start;
 import command.Stop;
 import model.Moteur;
-import vue.Bouton;
-import vue.Curseur;
-import vue.IHM;
+import vue.*;
 
 
 public class ControllerImpl implements Controller {
@@ -17,14 +15,13 @@ public class ControllerImpl implements Controller {
 	private Bouton boutonStop;
 	private Bouton boutonInc;
 	private Bouton boutonDec;
-	//	private Afficheur afficheur;
-//  private Bippeur bipeur;
+	private Afficheur afficheur;
+	private Bipeur bipeur;
 	private Curseur curseur;
 	private IHM ihm;
 
-	public ControllerImpl(Moteur moteur, IHM ihm) {
+	public ControllerImpl(Moteur moteur) {
 		this.moteur = moteur;
-		this.ihm = ihm;
 	}
 
 	@Override
@@ -98,11 +95,16 @@ public class ControllerImpl implements Controller {
 	public void setCurseur(Curseur curseur) {
 		this.curseur = curseur;
 	}
-	/*public void setAfficheur(Afficheur afficheur) {
+
+	public void setAfficheur(Afficheur afficheur) {
 		this.afficheur = afficheur;
 	}
+
 	public void setBipeur(Bipeur bipeur) {
 		this.bipeur = bipeur;
-	}*/
+	}
 
+    public void setIHM(IHM ihm) {
+        this.ihm = ihm;
+    }
 }
