@@ -18,7 +18,6 @@ public class ControllerImpl implements Controller {
 	private Afficheur afficheur;
 	private Bipeur bipeur;
 	private Curseur curseur;
-	private IHM ihm;
 
 	public ControllerImpl(Moteur moteur) {
 		this.moteur = moteur;
@@ -104,7 +103,4 @@ public class ControllerImpl implements Controller {
 		this.bipeur = bipeur;
 	}
 
-    public void setIHM(IHM ihm) {
-        this.ihm = ihm;
-    }
 }
