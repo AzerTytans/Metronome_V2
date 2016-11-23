@@ -7,9 +7,9 @@ import java.applet.Applet;
  */
 public class BipeurImpl implements Bipeur {
 
-	java.net.URL temps = getClass().getResource("/view/Beep.wav");
+	java.net.URL temps = getClass().getResource("/tools/beep-tempo.wav");
 	java.applet.AudioClip sonTemps = Applet.newAudioClip(temps);
-	java.net.URL mesure = getClass().getResource("/view/Beep.wav");
+	java.net.URL mesure = getClass().getResource("/tools/beep-mesure.wav");
 	java.applet.AudioClip sonMesure = Applet.newAudioClip(mesure);
 
 	@Override

@@ -85,7 +85,7 @@ public class MoteurImpl implements Moteur{
         if (!marche == enMarche) {
             enMarche = marche;
             if(enMarche)
-                this.horloge.activerPeriodiquement(new MarquerNext(this), 60/tempo);
+                this.horloge.activerPeriodiquement(new MarquerNext(this),1000f/ (60f/tempo));
             else{
                 mesureActuelle = 0;
                 this.horloge.desactiver();
@@ -105,7 +105,7 @@ public class MoteurImpl implements Moteur{
 	    if (count==5){
             this.tempo = tempo;
             this.horloge.desactiver();
-            this.horloge.activerPeriodiquement(new MarquerNext(this), 60/tempo);
+            this.horloge.activerPeriodiquement(new MarquerNext(this), 1000f/ (60f/this.tempo));
             updateTempo.execute();
         }
     }
