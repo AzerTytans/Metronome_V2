@@ -9,4 +9,9 @@ public class AfficheurImpl implements Afficheur {
     public AfficheurImpl(IHM controller) {
         this.controller = controller;
     }
+
+	@Override
+	public void setValeur(int i) {
+
+	}
 }
