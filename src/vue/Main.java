@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = fxml.load();
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Metronome");
         primaryStage.setScene(new Scene(root, 500, 275));
         primaryStage.show();
 

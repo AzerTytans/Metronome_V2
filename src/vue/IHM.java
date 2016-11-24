@@ -80,22 +80,22 @@ public class IHM {
     public void marquerMesure(){
         mesureLed.setFill(Paint.valueOf("red"));
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        mesureLed.setFill(Paint.valueOf("blue"));
+        mesureLed.setFill(Paint.valueOf("black"));
     }
 
     public void marquerTempo(){
 
         tempoLed.setFill(Paint.valueOf("green"));
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        tempoLed.setFill(Paint.valueOf("pink"));
+        tempoLed.setFill(Paint.valueOf("black"));
 
     }
 

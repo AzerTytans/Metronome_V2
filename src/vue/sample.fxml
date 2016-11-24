@@ -25,8 +25,8 @@
                      <Font name="DejaVu Sans Bold" size="24.0" />
                  </font>
              </Label>
-            <Circle fx:id="mesureLed" fill="WHITE" layoutX="410.0" layoutY="43.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="tempoLed" fill="#ff3b1f" layoutX="410.0" layoutY="106.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="mesureLed" fill="BLACK" layoutX="410.0" layoutY="43.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="tempoLed" fill="BLACK" layoutX="410.0" layoutY="106.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
             <Slider fx:id="slider" layoutX="20.0" layoutY="65.0" onMouseReleased="#onSliderChanged" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="450.0">
