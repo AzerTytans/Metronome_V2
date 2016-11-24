@@ -15,6 +15,9 @@ public class IHM {
     private Label tempo;
 
     @FXML
+    private Label mesure;
+
+    @FXML
     private Circle tempoLed;
 
     @FXML
