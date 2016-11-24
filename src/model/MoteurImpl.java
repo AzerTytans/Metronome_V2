@@ -21,8 +21,8 @@ public class MoteurImpl implements Moteur{
     private Command updateEtat;
     private Command updateMesure;
 
-	private int old = 0;
-	private int count = 0;
+    private int old = 0;
+    private int count = 0;
 
     /**
      * Parametre
@@ -69,8 +69,10 @@ public class MoteurImpl implements Moteur{
     }
 
     public void notifyDelay(){
-        if(mesureActuelle%mesure == 0)
+        if(mesureActuelle%mesure == 0) {
+            mesureActuelle++;
             marquerMesure.execute();
+        }
         else{
             marquerTemps.execute();
             mesureActuelle++;
@@ -96,13 +98,13 @@ public class MoteurImpl implements Moteur{
 
     @Override
     public void setTempo(int tempo){
-	    if(old==tempo)
-		    count ++;
-	    else {
-		    count = 0;
-		    old = tempo;
-	    }
-	    if (count==5){
+        if(old==tempo)
+            count ++;
+        else {
+            count = 0;
+            old = tempo;
+        }
+        if (count==5){
             this.tempo = tempo;
             this.horloge.desactiver();
             this.horloge.activerPeriodiquement(new MarquerNext(this), 1000f/ (60f/this.tempo));
@@ -112,11 +114,11 @@ public class MoteurImpl implements Moteur{
 
     @Override
     public void setMesure(int mesure){
-	    if (1<mesure && mesure<8){
+        if (1<mesure && mesure<8){
             this.mesure = mesure;
             this.mesureActuelle = 0;
             updateMesure.execute();
-	    }
+        }
     }
 
     @Override
