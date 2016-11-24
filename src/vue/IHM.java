@@ -54,7 +54,7 @@ public class IHM {
 
     @FXML
     public void onStart(ActionEvent actionEvent) {
-        start.onStart(actionEvent);
+            start.onStart(actionEvent);
     }
     @FXML
     public void onStop(ActionEvent actionEvent) {
@@ -90,7 +90,9 @@ public class IHM {
         tempoLed.setFill(Paint.valueOf("pink"));
 
     }
-
+    public void setValeur(int i ){
+        tempo.setText(i+"");
+    }
     /**
      *
      * Getters/Setters

@@ -25,7 +25,7 @@ public class Main extends Application {
 
     public void initialize(FXMLLoader fxml){
         Moteur moteur = new MoteurImpl();
-        Afficheur afficheur = new AfficheurImpl((IHM)fxml.getController());
+        Afficheur afficheur = new AfficheurImpl(fxml.getController());
         Bipeur bipeur = new BipeurImpl();
 
         /**

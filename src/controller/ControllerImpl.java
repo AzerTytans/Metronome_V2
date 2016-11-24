@@ -11,6 +11,7 @@ public class ControllerImpl implements Controller {
 	private Moteur moteur;
 	private Afficheur afficheur;
     private Bipeur bipeur;
+	private Curseur curseur;
 
 	public ControllerImpl(Moteur moteur) {
 		this.moteur = moteur;
@@ -38,13 +39,12 @@ public class ControllerImpl implements Controller {
 
 	@Override
 	public void marquerTemps() {
-	bipeur.marquerTemps();
+		bipeur.marquerTemps();
 	}
 
 	@Override
 	public void marquerMesure() {
-	//ihm.marquerMesure();
-	bipeur.marquerMesure();
+		bipeur.marquerMesure();
 	}
 
 	@Override
@@ -69,8 +69,7 @@ public class ControllerImpl implements Controller {
 
 	@Override
 	public void updateCursor() {
-		int cursorPosition=42;
-		moteur.setTempo(cursorPosition);
+		moteur.setTempo(curseur.getPosition());
 	}
 
 	public void setBoutonStart(Bouton boutonStart) {
@@ -90,6 +89,7 @@ public class ControllerImpl implements Controller {
 	}
 
 	public void setCurseur(Curseur curseur) {
+		this.curseur=curseur;
 		curseur.setCommand(new UpdateCursor(this));
 	}
 

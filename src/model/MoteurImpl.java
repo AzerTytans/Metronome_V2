@@ -69,8 +69,10 @@ public class MoteurImpl implements Moteur{
     }
 
     public void notifyDelay(){
-        if(mesureActuelle%mesure == 0)
+        if(mesureActuelle%mesure == 0){
             marquerMesure.execute();
+            mesureActuelle ++;
+        }
         else{
             marquerTemps.execute();
             mesureActuelle++;
