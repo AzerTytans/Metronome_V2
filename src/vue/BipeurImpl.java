@@ -4,6 +4,11 @@ import java.applet.Applet;
 
 
 public class BipeurImpl implements Bipeur {
+    private IHM controller;
+
+	public BipeurImpl(IHM controller){
+        this.controller = controller;
+    }
 
 	java.net.URL temps = getClass().getResource("/tools/beep-tempo.wav");
 	java.applet.AudioClip sonTemps = Applet.newAudioClip(temps);
@@ -12,11 +17,13 @@ public class BipeurImpl implements Bipeur {
 
 	@Override
 	public void marquerTemps() {
-		sonTemps.play();
+        sonTemps.play();
+        controller.marquerTempo();
 	}
 
 	@Override
 	public void marquerMesure() {
 		sonMesure.play();
+        controller.marquerMesure();
 	}
 }
