@@ -52,7 +52,8 @@ public class IHM {
     }
 
     public void onSliderChanged(MouseEvent mouseEvent) {
-        cursor.onSliderChanged(mouseEvent);
+       double val = slider.getValue();
+        cursor.onSliderChanged(mouseEvent, val);
     }
 
     @FXML

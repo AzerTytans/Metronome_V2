@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 
 public class CurseurImpl implements Curseur{
 
-    private int position;
+    private double position;
     private Command updateCurseur;
 
     private CurseurImpl()
@@ -26,7 +26,7 @@ public class CurseurImpl implements Curseur{
     }
 
     @Override
-    public int getPosition() {
+    public double getPosition() {
         return position;
     }
 
@@ -35,7 +35,8 @@ public class CurseurImpl implements Curseur{
         this.updateCurseur = c;
     }
 
-    public void onSliderChanged(MouseEvent e){
+    public void onSliderChanged(MouseEvent e,double valeur){
+        this.position = valeur;
         updateCurseur.execute();
     }
 
