@@ -38,6 +38,7 @@ public class IHM {
     @FXML
     private Button decButton;
 
+
     private CurseurImpl cursor;
     private BoutonStart start;
     private BoutonStop stop;
@@ -49,6 +50,9 @@ public class IHM {
 
     @FXML
     private void initialize(){
+        slider.setMin(30);
+        slider.setMax(300);
+
     }
 
     public void onSliderChanged(MouseEvent mouseEvent) {

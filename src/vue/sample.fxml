@@ -15,7 +15,7 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Label fx:id="tempo" alignment="CENTER" layoutX="178.0" layoutY="35.0" prefHeight="67.0" prefWidth="93.0" style="-fx-background-color: black; -fx-text-fill: white;" text="120" textAlignment="CENTER">
+            <Label fx:id="tempo" alignment="CENTER" layoutX="178.0" layoutY="35.0" prefHeight="67.0" prefWidth="93.0" style="-fx-background-color: black; -fx-text-fill: white;" text="30" textAlignment="CENTER">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
