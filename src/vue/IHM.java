@@ -15,6 +15,9 @@ public class IHM {
     private Label tempo;
 
     @FXML
+    private Label mesure;
+
+    @FXML
     private Circle tempoLed;
 
     @FXML
@@ -49,7 +52,8 @@ public class IHM {
     }
 
     public void onSliderChanged(MouseEvent mouseEvent) {
-        cursor.onSliderChanged(mouseEvent);
+       double val = slider.getValue();
+        cursor.onSliderChanged(mouseEvent, val);
     }
 
     @FXML

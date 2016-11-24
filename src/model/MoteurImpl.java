@@ -21,9 +21,6 @@ public class MoteurImpl implements Moteur{
     private Command updateEtat;
     private Command updateMesure;
 
-	private int old = 0;
-	private int count = 0;
-
     /**
      * Parametre
      */
@@ -39,7 +36,7 @@ public class MoteurImpl implements Moteur{
 
     public MoteurImpl() {
         this.enMarche = false;
-        this.tempo = 150;
+        this.tempo = 30;
         this.mesure = 4;
         this.horloge = new HorlogeImpl();
         this.mesureActuelle = 0;
@@ -69,9 +66,12 @@ public class MoteurImpl implements Moteur{
     }
 
     public void notifyDelay(){
-        if(mesureActuelle%mesure == 0){
+        System.out.println("Tempo : " + tempo);
+        System.out.println("Mesure Actuelle : " + mesureActuelle%4);
+        System.out.println("Mesure : " + mesure);
+        if(mesureActuelle%mesure == 0) {
+            mesureActuelle++;
             marquerMesure.execute();
-            mesureActuelle ++;
         }
         else{
             marquerTemps.execute();
@@ -98,27 +98,21 @@ public class MoteurImpl implements Moteur{
 
     @Override
     public void setTempo(int tempo){
-	    if(old==tempo)
-		    count ++;
-	    else {
-		    count = 0;
-		    old = tempo;
-	    }
-	    if (count==5){
-            this.tempo = tempo;
-            this.horloge.desactiver();
+        System.out.println("New tempo : " + tempo);
+        this.tempo = tempo;
+        this.horloge.desactiver();
+        if(enMarche)
             this.horloge.activerPeriodiquement(new MarquerNext(this), 1000f/ (60f/this.tempo));
-            updateTempo.execute();
-        }
+        updateTempo.execute();
     }
 
     @Override
     public void setMesure(int mesure){
-	    if (1<mesure && mesure<8){
+        if (1<mesure && mesure<8){
             this.mesure = mesure;
             this.mesureActuelle = 0;
             updateMesure.execute();
-	    }
+        }
     }
 
     @Override
