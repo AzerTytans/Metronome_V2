@@ -2,19 +2,16 @@ package vue;
 
 import command.Command;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
 
-/**
- * Created by tp15009314 on 16/11/16.
- */
 public class BoutonDec implements Bouton {
+    /**
+     * Instance unique pré-initialisée
+     */
+    private static BoutonDec INSTANCE = new BoutonDec();
     private Command dec;
 
     private BoutonDec()
     {}
-
-    /** Instance unique pré-initialisée */
-    private static BoutonDec INSTANCE = new BoutonDec();
 
     /** Point d'accès pour l'instance unique du singleton */
     public static BoutonDec getInstance()

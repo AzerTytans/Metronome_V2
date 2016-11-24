@@ -94,10 +94,16 @@ public class IHM {
         tempoLed.setFill(Paint.valueOf("pink"));
 
     }
-    public void setValeur(int i ){
-        tempo.setText(i+"");
+
+	public void setValeurTempo(int i) {
+		tempo.setText(i+"");
     }
-    /**
+
+	public void setValeurMesure(int i) {
+		mesure.setText(i + "");
+	}
+
+	/**
      *
      * Getters/Setters
      *

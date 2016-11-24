@@ -3,7 +3,10 @@ package controller;
 import command.*;
 import model.CommandName;
 import model.Moteur;
-import vue.*;
+import vue.Afficheur;
+import vue.Bipeur;
+import vue.Bouton;
+import vue.Curseur;
 
 
 public class ControllerImpl implements Controller {
@@ -24,12 +27,14 @@ public class ControllerImpl implements Controller {
 
 	@Override
 	public void updateTempo() {
-		afficheur.setValeur(moteur.getTempo());
+		afficheur.setValeurTempo(moteur.getTempo());
 	}
 
 	@Override
 	public void updateMesure() {
-		//set Mesure IHM
+		System.out.println(moteur.getMesure());
+		afficheur.setValeurMesure(moteur.getMesure());
+
 	}
 
 	@Override
@@ -69,7 +74,7 @@ public class ControllerImpl implements Controller {
 
 	@Override
 	public void updateCursor() {
-		moteur.setTempo(curseur.getPosition());
+		moteur.setTempo((int) curseur.getPosition());
 	}
 
 	public void setBoutonStart(Bouton boutonStart) {

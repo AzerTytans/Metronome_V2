@@ -1,8 +1,5 @@
 package vue;
 
-/**
- * Created by ce on 16/11/16.
- */
 public class AfficheurImpl implements Afficheur {
 
     private IHM controller;
@@ -11,8 +8,15 @@ public class AfficheurImpl implements Afficheur {
         this.controller = controller;
     }
 
+
 	@Override
-	public void setValeur(int i) {
-		controller.setValeur(i);
+	public void setValeurMesure(int i) {
+		controller.setValeurMesure(i);
 	}
+
+	@Override
+	public void setValeurTempo(int i) {
+		controller.setValeurTempo(i);
+	}
+
 }

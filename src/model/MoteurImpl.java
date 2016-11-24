@@ -1,12 +1,9 @@
 package model;
 
 import command.Command;
-import command.MarquerMesure;
 import command.MarquerNext;
 import tools.Horloge;
 import tools.HorlogeImpl;
-
-import java.util.Timer;
 
 /**
  * Created by florian on 07/11/16.
@@ -66,9 +63,9 @@ public class MoteurImpl implements Moteur{
     }
 
     public void notifyDelay(){
-        System.out.println("Tempo : " + tempo);
-        System.out.println("Mesure Actuelle : " + mesureActuelle%4);
-        System.out.println("Mesure : " + mesure);
+//        System.out.println("Tempo : " + tempo);
+//        System.out.println("Mesure Actuelle : " + mesureActuelle%4);
+//        System.out.println("Mesure : " + mesure);
         if(mesureActuelle%mesure == 0) {
             mesureActuelle++;
             marquerMesure.execute();
@@ -78,6 +75,11 @@ public class MoteurImpl implements Moteur{
             mesureActuelle++;
         }
     }
+
+	@Override
+	public boolean getEtat() {
+		return enMarche;
+	}
 
     /**
      * Getters/Setters
@@ -97,6 +99,11 @@ public class MoteurImpl implements Moteur{
     }
 
     @Override
+    public int getTempo() {
+	    return tempo;
+    }
+
+	@Override
     public void setTempo(int tempo){
         System.out.println("New tempo : " + tempo);
         this.tempo = tempo;
@@ -107,26 +114,16 @@ public class MoteurImpl implements Moteur{
     }
 
     @Override
+    public int getMesure() {
+	    return mesure;
+    }
+
+	@Override
     public void setMesure(int mesure){
         if (1<mesure && mesure<8){
             this.mesure = mesure;
             this.mesureActuelle = 0;
             updateMesure.execute();
         }
-    }
-
-    @Override
-    public boolean getEtat() {
-        return enMarche;
-    }
-
-    @Override
-    public int getTempo() {
-        return tempo;
-    }
-
-    @Override
-    public int getMesure() {
-        return mesure;
     }
 }

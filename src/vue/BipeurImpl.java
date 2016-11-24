@@ -2,9 +2,7 @@ package vue;
 
 import java.applet.Applet;
 
-/**
- * Created by ce on 16/11/16.
- */
+
 public class BipeurImpl implements Bipeur {
 
 	java.net.URL temps = getClass().getResource("/tools/beep-tempo.wav");

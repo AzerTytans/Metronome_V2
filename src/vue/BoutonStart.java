@@ -1,22 +1,17 @@
 package vue;
 
 import command.Command;
-import javafx.beans.DefaultProperty;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-
-/**
- * Created by tp15009314 on 16/11/16.
- */
 
 public class BoutonStart implements Bouton {
+    /**
+     * Instance unique pré-initialisée
+     */
+    private static BoutonStart INSTANCE = new BoutonStart();
     private Command start;
 
     private BoutonStart()
     {}
-
-    /** Instance unique pré-initialisée */
-    private static BoutonStart INSTANCE = new BoutonStart();
 
     /** Point d'accès pour l'instance unique du singleton */
     public static BoutonStart getInstance()

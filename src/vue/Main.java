@@ -1,6 +1,6 @@
 package vue;
 
-import controller.Controller;
+
 import controller.ControllerImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +11,10 @@ import model.Moteur;
 import model.MoteurImpl;
 
 public class Main extends Application {
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -48,9 +52,5 @@ public class Main extends Application {
         ((IHM)fxml.getController()).setStart(BoutonStart.getInstance());
         ((IHM)fxml.getController()).setStop(BoutonStop.getInstance());
         ((IHM)fxml.getController()).setCursor(CurseurImpl.getInstance());
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
